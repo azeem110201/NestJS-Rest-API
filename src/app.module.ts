@@ -4,9 +4,11 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entity/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { ProfileController } from './profile/profile.controller';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
-  controllers: [AppController],
+  controllers: [AppController, ProfileController],
   imports: [
     UsersModule,
     TypeOrmModule.forRoot({
@@ -20,6 +22,7 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
     }),
     AuthModule,
+    ProfileModule,
   ],
 })
 export class AppModule {}
